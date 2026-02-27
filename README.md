@@ -31,7 +31,11 @@ PRESYMON is an AI-powered predictive system monitoring platform that provides re
 
 ## Author
 
-Sri Vishnu  
+SRI VISHNU Y S
+R RAM
+RAGHU V
+SACHIN ACHARYA 
+RAJASEKAR G
 Final Year Engineering Project
 
 ---
