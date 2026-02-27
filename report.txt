@@ -1,0 +1,10 @@
+AI Predictive Monitoring Report
+
+CPU: 0.0%
+RAM: 81.8%
+DISK: 32.1%
+GPU: 50%
+TEMP: 70%
+
+Suggestion:
+System healthy.

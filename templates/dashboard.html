@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Monitoring</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1 class="title">AI Predictive System Monitoring</h1>
+
+<div class="grid">
+
+    <canvas id="cpuChart"></canvas>
+    <canvas id="ramChart"></canvas>
+    <canvas id="diskChart"></canvas>
+
+</div>
+
+<h2>30 Day Forecast (View Only)</h2>
+<div id="daysView" class="days"></div>
+
+<br>
+<a href="/monitor">
+    <button>Open Monitoring Center</button>
+</a>
+
+<script src="/static/dashboard.js"></script>
+
+<script>
+for(let i=1;i<=30;i++){
+   let d=document.createElement("div")
+   d.className="day"
+   d.innerText=i
+   document.getElementById("daysView").appendChild(d)
+}
+</script>
+
+</body>
+</html>

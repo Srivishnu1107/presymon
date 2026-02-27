@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monitoring Center</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1 class="title">PREDICTIVE SYSTEM MONITORING CENTER</h1>
+
+<div class="grid">
+
+<!-- NOTIFICATIONS -->
+<div class="card">
+<h3>Live Notifications</h3>
+<div id="notify"></div>
+</div>
+
+
+<!-- AI SUGGESTIONS -->
+<div class="card">
+<h3>AI Suggestions</h3>
+<div id="aiBox">Loading...</div>
+</div>
+
+
+<!-- FORECAST -->
+<div class="card">
+<h3>30 Day Forecast</h3>
+<div id="days" class="days"></div>
+
+<button class="btn center-btn" onclick="location.href='/summary_report'">
+Download 30 Day Summary Report
+</button>
+</button>
+</div>
+
+</div>
+
+
+<script>
+
+const notifyBox = document.getElementById("notify");
+const aiBox = document.getElementById("aiBox");
+
+
+/* 🔔 Notifications every 5 sec */
+setInterval(()=>{
+    fetch("/live").then(r=>r.json()).then(d=>{
+
+        let msg="";
+
+        if(d.cpu>85) msg="⚠ High CPU usage";
+        else if(d.ram>85) msg="⚠ High RAM usage";
+        else if(d.disk>85) msg="⚠ Disk almost full";
+        else msg=" System healthy";
+
+        notifyBox.innerHTML =
+            `<div class="note">${new Date().toLocaleTimeString()} — ${msg}</div>`
+            + notifyBox.innerHTML;
+
+    });
+},5000);
+
+
+
+/* 🤖 AI suggestions every 10 sec */
+setInterval(()=>{
+    fetch("/ai").then(r=>r.json()).then(d=>{
+        aiBox.innerText=d.tip;
+    });
+},10000);
+
+
+
+/* 📊 30 day forecast */
+fetch("/forecast").then(r=>r.json()).then(data=>{
+    const box=document.getElementById("days");
+
+    data.forEach((v,i)=>{
+        let c="green";
+        if(v>80)c="red";
+        else if(v>60)c="yellow";
+
+        box.innerHTML+=
+        `<div class="day ${c}" onclick="downloadDay(${i+1})">${i+1}</div>`;
+    });
+});
+
+
+function downloadDay(day){
+    window.location="/day_report/"+day;
+}
+</script>
+<!-- 🤖 PRESYMON BOT -->
+<div id="bot-container">
+
+    <!-- ICON -->
+    <img id="bot-icon" src="/static/bot.png" alt="bot">
+
+    <!-- CHAT WINDOW -->
+    <div id="bot-chat">
+
+        <div class="bot-header">
+            PRESYMON BOT
+            <span id="close-bot">✖</span>
+        </div>
+
+        <div id="bot-messages">
+            <div class="bot-msg">Hello 👋 I monitor your system 24/7.</div>
+        </div>
+
+        <div class="bot-input">
+            <input id="bot-text" placeholder="Ask about CPU, RAM, Disk...">
+            <button id="send-btn">Send</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/assistant.js"></script>
+</body>
+</html>

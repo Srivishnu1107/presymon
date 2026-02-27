@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1 class="title">AI Predictive System Monitoring</h1>
+
+<div class="grid">
+
+<!-- CPU -->
+<div class="card">
+<h3>CPU Usage (%)</h3>
+<canvas id="cpu"></canvas>
+</div>
+
+<!-- RAM -->
+<div class="card">
+<h3>RAM Usage (%)</h3>
+<canvas id="ram"></canvas>
+</div>
+
+<!-- DISK -->
+<div class="card">
+<h3>Disk Usage (%)</h3>
+<canvas id="disk"></canvas>
+</div>
+
+<!-- GPU -->
+<div class="card">
+<h3>GPU Usage (%)</h3>
+<canvas id="gpu"></canvas>
+</div>
+
+
+<!-- AI BOX (IMPROVED) -->
+<div class="card ai-card">
+<h3>AI Suggestions</h3>
+
+<div id="aiBox" class="ai-text">Loading...</div>
+
+<button onclick="location.href='/monitor'" class="ai-btn">
+Open Monitoring Center
+</button>
+</div>
+
+
+<!-- FORECAST -->
+<div class="card">
+<h3>30 Day Forecast (View Only)</h3>
+<div id="days" class="days"></div>
+</div>
+
+</div>
+
+<script src="/static/dashboard.js"></script>
+<!-- 🤖 AI Companion Button -->
+<div id="assistant">
+    <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif"
+         onclick="toggleAI()" />
+</div>
+
+<!-- 💬 AI Panel -->
+<div id="aiPanel">
+    <div id="aiMessages">Hello! I am your AI Assistant 👋</div>
+
+    <input id="aiInput" placeholder="Ask about system..." />
+    <button onclick="sendAI()">Send</button>
+</div>
+<script src="/static/assistant.js"></script>
+</body>
+</html>

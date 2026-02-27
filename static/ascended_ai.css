@@ -1,0 +1,112 @@
+/* 🌌 Avatar */
+
+#aiAvatar{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:95px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:9999;
+
+  box-shadow:
+    0 0 20px #00ffe0,
+    0 0 60px #00ffe0,
+    0 0 120px #00ffe0;
+
+  transition:transform .2s;
+}
+
+#aiAvatar:hover{
+  transform:scale(1.12);
+}
+
+
+/* 🧠 Panel */
+
+#aiPanel{
+  position:fixed;
+  bottom:150px;
+  right:25px;
+  width:340px;
+  height:450px;
+
+  display:none;
+  flex-direction:column;
+
+  background:linear-gradient(180deg,#0b1b25,#061018);
+  border-radius:22px;
+  overflow:hidden;
+
+  box-shadow:0 0 60px #00ffe0;
+  backdrop-filter:blur(14px);
+
+  z-index:9999;
+}
+
+
+/* Header */
+
+#aiHeader{
+  background:#00d4c0;
+  padding:14px;
+  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+}
+
+
+/* Messages */
+
+#aiMessages{
+  flex:1;
+  padding:12px;
+  overflow-y:auto;
+  font-size:14px;
+}
+
+
+/* Message styles */
+
+.userMsg{
+  background:#00d4c0;
+  color:#002;
+  padding:10px;
+  border-radius:14px;
+  margin:8px 0;
+  text-align:right;
+}
+
+.botMsg{
+  background:#1e2a36;
+  color:#fff;
+  padding:10px;
+  border-radius:14px;
+  margin:8px 0;
+}
+
+
+/* Controls */
+
+#aiControls{
+  display:flex;
+  padding:8px;
+  gap:6px;
+  background:#07141c;
+}
+
+#aiInput{
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+  border-radius:8px;
+}
+
+#aiControls button{
+  background:#00d4c0;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:8px;
+}

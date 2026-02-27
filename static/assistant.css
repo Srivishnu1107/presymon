@@ -1,0 +1,114 @@
+/* ===== AVATAR ===== */
+#aiAvatar{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:90px;
+  cursor:pointer;
+  z-index:10000;
+
+  filter:drop-shadow(0 0 20px #00ffe7);
+  transition:.3s;
+}
+
+#aiAvatar:hover{
+  transform:scale(1.08);
+}
+
+
+/* ===== PANEL ===== */
+#aiPanel{
+  position:fixed;
+  bottom:20px;
+  right:130px;        /* panel left of avatar */
+  width:340px;
+  height:460px;
+
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(15px);
+
+  border-radius:18px;
+  box-shadow:0 0 35px #00ffe7;
+
+  display:none;
+  flex-direction:column;
+
+  z-index:9999;
+}
+
+
+/* ===== HEADER ===== */
+#aiHeader{
+  background:#00ffe7;
+  color:#000;
+  padding:12px 15px;
+  font-weight:bold;
+  border-radius:18px 18px 0 0;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  cursor:move;
+}
+
+#closeAI{
+  cursor:pointer;
+}
+
+
+/* ===== MESSAGES ===== */
+#aiMessages{
+  flex:1;
+  padding:15px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+
+/* BOT MESSAGE */
+.botMsg{
+  background:#2a2a2a;
+  padding:10px 14px;
+  border-radius:14px 14px 14px 4px;
+  max-width:80%;
+  color:#fff;
+}
+
+
+/* USER MESSAGE */
+.userMsg{
+  background:#00ffe7;
+  color:#000;
+  align-self:flex-end;
+  padding:10px 14px;
+  border-radius:14px 14px 4px 14px;
+  max-width:80%;
+}
+
+
+/* ===== INPUT ===== */
+#aiInputArea{
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+
+#aiInput{
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+#sendAI{
+  background:#00ffe7;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
